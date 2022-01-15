@@ -13,25 +13,25 @@
     <title>Dashboard</title>
 
     <!-- Fontfaces CSS-->
-    <link href="{{asset('assets/css/font-face.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('assets/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('assets/vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('assets/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/css/font-face.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="{{asset('assets/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="{{asset('assets/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('assets/vendor/wow/animate.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('assets/vendor/css-hamburgers/hamburgers.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('assets/vendor/slick/slick.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('assets/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/vendor/wow/animate.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/vendor/css-hamburgers/hamburgers.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/vendor/slick/slick.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="{{asset('assets/css/theme.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_folders/css/theme.css')}}" rel="stylesheet" media="all">
 
 </head>
 
@@ -43,7 +43,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="{{asset('assets/images/logo.png')}}" alt="CoolAdmin" />
+                            <img src="{{asset('admin_folders/images/logo.png')}}" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -81,7 +81,7 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="{{asset('assets/images/logo.png')}}" alt="Cool Admin" />
+                    <img src="{{asset('admin_folders/images/logo.png')}}" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -115,23 +115,23 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="{{asset('assets/images/avatar-01.jpg')}}" alt="John Doe" />
+                                            <img src="{{asset('admin_folders/images/avatar-01.jpg')}}" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#">{{Auth::user()->name}}</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="{{asset('assets/images/avatar-01.jpg')}}" alt="John Doe" />
+                                                        <img src="{{asset('admin_folders/images/avatar-01.jpg')}}" alt="{{Auth::user()->name}}" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#">{{Auth::user()->name}}</a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email">{{Auth::user()->email}}</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -139,10 +139,20 @@
                                                     <a href="#">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                                <div class="account-dropdown__item">
+                                                    @guest
+                                                    @else
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">
+                                                    <i class="zmdi zmdi-power"></i>
+                                                            {{ __('Logout') }}
+                                                        </a>
+                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                            @csrf
+                                                        </form>
+                                                    @endguest
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
