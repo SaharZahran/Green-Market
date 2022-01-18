@@ -70,13 +70,13 @@
                             <div class="row mb-3">
                                 <label for="user_phone" class="col-md-4 col-form-label text-md-end">Phone</label>
                                 <div class="col-md-6">
-                                    <input id="user_phone" type="number" name="user_phone" autofocus>
+                                    <input id="user_phone" type="number" name="user_phone" autofocus autocomplete=''>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="user_type" class="col-md-4 col-form-label text-md-end">User Type</label>
                                 <div class="col-md-6">
-                                    <select name="user_type" id="user_type">
+                                    <select name="role_type" id="role_type">
                                         <option selected>Choose User Type</option>
                                         <option>user</option>
                                         <option>seller</option>

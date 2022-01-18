@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'role_type'     => 'user',
             'user_image'    => 'user.jpg',
             'user_phone'    => $data['user_phone'],
-            'user_type'     => $data['user_type'],
+            'role_type'     => $data['role_type'],
             'company_name'  => $data['company_name'],
             'seller_method' => $data['seller_method'],
         ]);
