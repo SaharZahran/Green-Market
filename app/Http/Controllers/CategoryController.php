@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Organic;
-use App\Http\Requests\StoreOrganicRequest;
-use App\Http\Requests\UpdateOrganicRequest;
+use App\Models\Category;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 
-class OrganicController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class OrganicController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreOrganicRequest  $request
+     * @param  \App\Http\Requests\StoreCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOrganicRequest $request)
+    public function store(StoreCategoryRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class OrganicController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Organic  $organic
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Organic $organic)
+    public function show(Category $category)
     {
         //
     }
@@ -53,10 +53,10 @@ class OrganicController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Organic  $organic
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Organic $organic)
+    public function edit(Category $category)
     {
         //
     }
@@ -64,11 +64,11 @@ class OrganicController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateOrganicRequest  $request
-     * @param  \App\Models\Organic  $organic
+     * @param  \App\Http\Requests\UpdateCategoryRequest  $request
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOrganicRequest $request, Organic $organic)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
         //
     }
@@ -76,10 +76,10 @@ class OrganicController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Organic  $organic
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Organic $organic)
+    public function destroy(Category $category)
     {
         //
     }

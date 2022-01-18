@@ -18,7 +18,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->role_type == '1'){
+            if(Auth::user()->role_type == 'admin'){
                 return $next($request);
             }else{
                 return redirect('public.home')->with('status', 'Access Denied!!!');

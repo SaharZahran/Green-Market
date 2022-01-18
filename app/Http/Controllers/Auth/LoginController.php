@@ -30,9 +30,9 @@ class LoginController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
 
     public function authenticated(){
-        if(Auth::user()->role_type == '1'){
+        if(Auth::user()->role_type == 'admin'){
             return view('admin.index');
-        }elseif(Auth::user()->role_type == '0'){
+        }elseif(Auth::user()->role_type == 'user'){
             return '/';
         }
     }

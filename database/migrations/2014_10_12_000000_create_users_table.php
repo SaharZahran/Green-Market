@@ -20,9 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('company_name')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger('role_type')->default('0');
+            $table->string('role_type')->default('user'); /*user / admin / seller*/
             $table->text('user_image')->nullable();
-            $table->string('user_type')->nullable()->default('user');
             $table->string('seller_method')->nullable();
             $table->string('user_phone')->nullable();
             $table->rememberToken();
