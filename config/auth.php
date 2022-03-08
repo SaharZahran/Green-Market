@@ -17,6 +17,14 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
+    'admin'=>[
+       'driver'=>'eloquent',
+       'model'=>App\Models\Admin::class,
+    ],
+    'seller'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\Seller::class,
+     ],
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +39,7 @@ return [
     | users are actually retrieved out of your database or other storage
     | mechanisms used by this application to persist your user's data.
     |
-    | Supported: "session"
+    | Supported: "session", "token"
     |
     */
 
@@ -40,6 +48,20 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+        'admin'=>[
+           'driver'=>'session',
+           'provider'=>'admins',
+        ],
+        'seller'=>[
+            'driver'=>'session',
+            'provider'=>'sellers',
+         ],
     ],
 
     /*
@@ -64,11 +86,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins'=>[
+           'driver'=>'eloquent',
+           'model'=>App\Models\Admin::class,
+        ],
+        'sellers'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Seller::class,
+         ],
     ],
 
     /*
@@ -93,6 +118,14 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'admins'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Admin::class,
+        ],
+        'sellers'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Seller::class,
+        ]
     ],
 
     /*

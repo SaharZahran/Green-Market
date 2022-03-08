@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\Store;
+use App\Models\Product;
+use App\Models\Address;
 
 class User extends Authenticatable
 {
@@ -18,16 +19,13 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $guard = 'user';
+
     protected $fillable = [
         'name',
         'email',
         'password',
-        'role_type',
-        'company_name',
-        'user_image',
-        'user_type',
-        'seller_method',
-        'user_phone'
+        'confirm_password'
     ];
 
     /**
@@ -48,13 +46,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function store(){
-        return $this->hasOne(Store::class);
-    }
-
-    public function products()
+    public function product()
     {
         return $this->belongsToMany(Product::class);
+    }
+    public function address(){
+        return $this->hasOne(Address::class);
     }
 }

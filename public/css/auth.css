@@ -1,0 +1,47 @@
+.container{
+    width: 35vw;
+margin:10vh auto;
+}
+.register__form, .login__form{
+border: 1px solid black;
+border-radius: 7px;
+padding-top: 2vh;
+height: fit-content;
+font-size: 1.2em;
+padding-bottom: 2vh;
+}
+.form__field > *{
+    display:block;
+    width: 90%;
+    margin: 1vh auto;
+}
+.login__btn, .register__btn{
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+    width: 90%;
+    margin: 2vh 2vw;
+    background-color: #9ECB8B;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+.form__field input{
+    height: 5vh;
+    border-radius: 7px;
+    padding-left: 1vw;
+}
+.form__hint{
+    margin-left: 1vw;
+}
+.text-danger{
+    color: red;
+}
+@media  (max-width:880px){
+    .container{
+        width: 60vw;
+    margin:10vh auto;
+    }
+}
+.register__form--hint{
+    color: gray;
+    font-size: 0.8em;
+}

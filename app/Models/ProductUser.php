@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class ProductUser extends Model
 {
     use HasFactory;
+    protected $table = "role_user";
     protected $fillable = [
-        'user-id',
-        'product-id',
+        "user_id",
+        "product_id",
         'quantity',
-        'total-price'
+        'total_price',
     ];
 }

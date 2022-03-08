@@ -4,30 +4,29 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Seller;
+use App\Models\User;
+use App\Models\SubCategory;
 
 class Product extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'name',
-        'description',
-        'price',
-        'image-one',
-        'image-two',
-        'image-three',
-        'image-four',
-        'store-id',
-        'subcategory-id'
-     ];
-
+        'product_name',
+        'product_description',
+        'product_price',
+        'product_image',
+        'subcategory_id',
+        'store_id'
+    ];
     public function store(){
-        return $this->belongsTo(Store::class);
+        return $this->belongsTo(Seller::class);
     }
-
-    public function users()
+    public function subcategory(){
+        return $this->belongsTo(SubCategory::class);
+    }
+    public function user()
     {
         return $this->belongsToMany(User::class);
     }
-
 }
